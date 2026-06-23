@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thaufik Fauzan Anra — Portfolio CV</title>
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            deep: '#030f12',
+            tealDark: '#071d22',
+            tealMedium: '#0c2d34',
+            tealLight: '#14434c',
+            glow: '#3bb8ac',
+            glowSoft: 'rgba(59, 184, 172, 0.1)',
+            glowLine: 'rgba(59, 184, 172, 0.25)',
+            cream: '#f0f7f4',
+            muted: '#89a8a5'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            oswald: ['Oswald', 'sans-serif'],
+            anton: ['Anton', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #030f12;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #14434c;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3bb8ac;
+    }
+
+    /* Grid pattern background effect */
+    .grid-bg {
+      background-image: 
+        linear-gradient(rgba(59, 184, 172, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 184, 172, 0.03) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* Custom CSS components and transitions */
+    .text-stroke-glow {
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(59, 184, 172, 0.8);
+      text-shadow: 0 0 15px rgba(59, 184, 172, 0.2);
+    }
+    
+    .cover-card-glow {
+      box-shadow: 0 0 40px rgba(59, 184, 172, 0.05);
+    }
+
+    /* Scroll spy active navigation element style */
+    .nav-active {
+      color: #3bb8ac !important;
+      border-color: #3bb8ac !important;
+      background: rgba(59, 184, 172, 0.08);
+      padding-left: 12px;
+    }
+
+    .mobile-nav-active {
+      color: #3bb8ac !important;
+      border-color: rgba(59, 184, 172, 0.5) !important;
+      background: rgba(59, 184, 172, 0.1) !important;
+    }
+
+    /* Card Micro-interactions */
+    .interactive-card {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .interactive-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 100%;
+      background: linear-gradient(180deg, rgba(59, 184, 172, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .interactive-card:hover::before {
+      opacity: 1;
+    }
+    .interactive-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      border-color: rgba(59, 184, 172, 0.4);
+      box-shadow: 0 12px 30px rgba(3, 15, 18, 0.6), 0 0 15px rgba(59, 184, 172, 0.1);
+    }
+
+    /* Custom Animations */
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.6; }
+    }
+    .pulse-glow-bg {
+      animation: pulse-glow 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .float-anim {
+      animation: float 5s ease-in-out infinite;
+    }
+
+    /* Print settings optimization */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-deep text-cream font-sans selection:bg-glow selection:text-deep antialiased min-h-screen">
+
+  <!-- HERO COVER -->
+  <header class="relative min-h-[92vh] sm:min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden border-b border-tealLight/30">
+    <!-- Glow backdrops -->
+    <div class="absolute inset-0 grid-bg opacity-40 z-0"></div>
+    <div class="absolute top-[20%] left-[15%] w-80 h-80 rounded-full bg-glow/10 filter blur-[80px] pulse-glow-bg z-0"></div>
+    <div class="absolute bottom-[20%] right-[15%] w-96 h-96 rounded-full bg-glow/5 filter blur-[100px] pulse-glow-bg z-0" style="animation-delay: 3s;"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+      
+      <!-- Avatar with Dynamic Border Effect -->
+      <div class="relative group mb-8 float-anim">
+        <div class="absolute inset-0 bg-gradient-to-tr from-glow to-tealLight rounded-full blur opacity-40 group-hover:opacity-85 transition duration-500"></div>
+        <div class="relative w-32 h-32 sm:w-36 sm:h-36 rounded-full p-[3px] bg-gradient-to-tr from-tealLight via-glowLine to-glow">
+          <div class="w-full h-full rounded-full overflow-hidden bg-tealDark">
+            <img 
+              src="https://i.pinimg.com/736x/2d/42/c5/2d42c55869a9dafb1394e7f9332b12ce.jpg" 
+              alt="Profile Picture of Thaufik Fauzan Anra" 
+              class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+              onerror="this.src='https://placehold.co/300x300/0c2d34/3bb8ac?text=Thaufik'"
+            />
+          </div>
+        </div>
+        <!-- Online Indicator badge -->
+        <span class="absolute bottom-2 right-2 flex h-5 w-5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-glow opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-5 w-5 bg-glow border-4 border-deep"></span>
+        </span>
+      </div>
+
+      <!-- Eyebrow -->
+      <span class="text-glow font-oswald text-xs sm:text-sm tracking-[0.4em] uppercase mb-4 block">Interactive Portfolio & CV</span>
+
+      <!-- Headline -->
+      <h1 class="font-anton uppercase tracking-wide leading-[0.95] text-5xl sm:text-7xl md:text-8xl flex flex-col gap-1">
+        <span>THAUFIK</span>
+        <span class="text-stroke-glow text-transparent font-sans italic font-black">FAUZAN</span>
+        <span>ANRA</span>
+      </h1>
+
+      <!-- Role / Bio Tags -->
+      <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 mt-8 font-oswald text-sm sm:text-base tracking-widest text-muted uppercase">
+        <span>Informatics Engineering</span>
+        <span class="hidden sm:inline text-glow/40">•</span>
+        <span>Web & Software Developer</span>
+      </div>
+
+      <!-- GPA Pill -->
+      <div class="mt-8 bg-tealDark/80 backdrop-blur-md border border-glowLine px-6 py-2.5 rounded-full text-xs sm:text-sm font-oswald tracking-wider flex items-center gap-2 shadow-lg">
+        <svg class="w-4 h-4 text-glow" fill="currentColor" viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path></svg>
+        <span>GPA <strong class="text-glow font-bold">3.53 / 4.00</strong></span>
+        <span class="text-muted/50">|</span>
+        <span class="text-muted">Politeknik Negeri Batam</span>
+      </div>
+
+      <!-- Action Button / Scroll Indicator -->
+      <a href="#about" class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group transition duration-300">
+        <span class="font-oswald text-[10px] tracking-[0.3em] text-muted group-hover:text-glow uppercase">Explore</span>
+        <div class="w-[20px] h-[36px] rounded-full border-2 border-muted/40 group-hover:border-glow/60 flex justify-center p-1 transition duration-300">
+          <div class="w-1.5 h-1.5 rounded-full bg-glow animate-bounce"></div>
+        </div>
+      </a>
+
+    </div>
+  </header>
+
+  <!-- MOBILE FLOATING STICKY NAVIGATION -->
+  <nav class="mobile-nav sticky top-0 z-50 md:hidden bg-deep/80 backdrop-blur-lg border-b border-tealLight/40 px-4 py-3" aria-label="Mobile Navigation">
+    <div class="flex items-center justify-between">
+      <span class="font-oswald text-glow text-sm font-semibold tracking-wider">TFA.</span>
+      <div class="flex gap-1.5 overflow-x-auto max-w-[80vw] scrollbar-none py-1">
+        <a href="#about" class="mobile-nav-link text-[11px] font-oswald uppercase tracking-wider px-3 py-1.5 rounded-full border border-tealLight/40 text-muted transition-all">About</a>
+        <a href="#education" class="mobile-nav-link text-[11px] font-oswald uppercase tracking-wider px-3 py-1.5 rounded-full border border-tealLight/40 text-muted transition-all">Education</a>
+        <a href="#projects" class="mobile-nav-link text-[11px] font-oswald uppercase tracking-wider px-3 py-1.5 rounded-full border border-tealLight/40 text-muted transition-all">Projects</a>
+        <a href="#certifications" class="mobile-nav-link text-[11px] font-oswald uppercase tracking-wider px-3 py-1.5 rounded-full border border-tealLight/40 text-muted transition-all">Certifications</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- WRAPPER SHELL (Sidebar & Content Area) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] lg:grid-cols-[320px_1fr] gap-8 lg:gap-16 items-start">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="space-y-8 md:sticky md:top-10 no-print">
+        
+        <!-- Sidebar Navigation Menu (Desktop Only) -->
+        <nav class="hidden md:block bg-tealDark/40 border border-tealLight/20 rounded-2xl p-6 backdrop-blur-md">
+          <h3 class="font-oswald text-xs tracking-[0.2em] uppercase text-glow mb-4">Navigation</h3>
+          <ul class="space-y-1 font-oswald text-sm text-muted">
+            <li>
+              <a href="#about" class="sidebar-nav-link flex items-center gap-3 py-2.5 px-3 rounded-lg border-l-2 border-transparent hover:text-glow hover:bg-tealLight/10 transition-all duration-300">
+                <span class="text-[10px] text-glow/60">01 //</span> ABOUT
+              </a>
+            </li>
+            <li>
+              <a href="#education" class="sidebar-nav-link flex items-center gap-3 py-2.5 px-3 rounded-lg border-l-2 border-transparent hover:text-glow hover:bg-tealLight/10 transition-all duration-300">
+                <span class="text-[10px] text-glow/60">02 //</span> EDUCATION
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="sidebar-nav-link flex items-center gap-3 py-2.5 px-3 rounded-lg border-l-2 border-transparent hover:text-glow hover:bg-tealLight/10 transition-all duration-300">
+                <span class="text-[10px] text-glow/60">03 //</span> PROJECTS
+              </a>
+            </li>
+            <li>
+              <a href="#certifications" class="sidebar-nav-link flex items-center gap-3 py-2.5 px-3 rounded-lg border-l-2 border-transparent hover:text-glow hover:bg-tealLight/10 transition-all duration-300">
+                <span class="text-[10px] text-glow/60">04 //</span> CERTIFICATIONS
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Contact Section -->
+        <div class="bg-tealDark/40 border border-tealLight/20 rounded-2xl p-6 backdrop-blur-md space-y-4">
+          <h3 class="font-oswald text-xs tracking-[0.2em] uppercase text-glow border-b border-tealLight/30 pb-3">Contact</h3>
+          <ul class="space-y-3.5 text-xs text-muted">
+            <li class="flex items-start gap-3 group">
+              <div class="p-2 bg-tealLight/20 rounded-lg text-glow group-hover:bg-glow group-hover:text-deep transition duration-300">
+                <!-- Location Icon SVG -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              </div>
+              <span class="leading-relaxed mt-1">Batam, Riau Islands, Indonesia</span>
+            </li>
+            <li class="flex items-start gap-3 group">
+              <div class="p-2 bg-tealLight/20 rounded-lg text-glow group-hover:bg-glow group-hover:text-deep transition duration-300">
+                <!-- Phone Icon SVG -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              </div>
+              <a href="tel:+62895603676613" class="leading-relaxed mt-1 hover:text-glow transition">+62 895-6036-76613</a>
+            </li>
+            <li class="flex items-start gap-3 group">
+              <div class="p-2 bg-tealLight/20 rounded-lg text-glow group-hover:bg-glow group-hover:text-deep transition duration-300">
+                <!-- Email Icon SVG -->
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              </div>
+              <a href="mailto:taufikfauzan33@gmail.com" class="leading-relaxed mt-1 hover:text-glow transition break-all">taufikfauzan33@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Technical Skills -->
+        <div class="bg-tealDark/40 border border-tealLight/20 rounded-2xl p-6 backdrop-blur-md space-y-4">
+          <h3 class="font-oswald text-xs tracking-[0.2em] uppercase text-glow border-b border-tealLight/30 pb-3">Technical Skills</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">PHP</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">JavaScript</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">HTML & CSS</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">MySQL</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">Git & GitHub</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">Figma</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">VS Code</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">XAMPP</span>
+            <span class="text-xs bg-tealLight/30 border border-tealLight/50 text-cream px-3 py-1.5 rounded-lg hover:border-glow/60 transition">Office Suite</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="bg-tealDark/40 border border-tealLight/20 rounded-2xl p-6 backdrop-blur-md space-y-4">
+          <h3 class="font-oswald text-xs tracking-[0.2em] uppercase text-glow border-b border-tealLight/30 pb-3">Languages</h3>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-xs mb-1.5">
+                <span class="text-cream font-medium">Indonesian</span>
+                <span class="text-glow">Native</span>
+              </div>
+              <div class="w-full bg-tealLight/30 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-glow h-full w-[100%] rounded-full"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1.5">
+                <span class="text-cream font-medium">English</span>
+                <span class="text-muted font-medium">Intermediate</span>
+              </div>
+              <div class="w-full bg-tealLight/30 h-1.5 rounded-full overflow-hidden">
+                <div class="bg-glow/60 h-full w-[60%] rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Soft Skills / Core Strengths -->
+        <div class="bg-tealDark/40 border border-tealLight/20 rounded-2xl p-6 backdrop-blur-md space-y-4">
+          <h3 class="font-oswald text-xs tracking-[0.2em] uppercase text-glow border-b border-tealLight/30 pb-3">Core Strengths</h3>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-[11px] bg-tealLight/10 border border-tealLight/20 text-muted px-2.5 py-1 rounded-md">Communication</span>
+            <span class="text-[11px] bg-tealLight/10 border border-tealLight/20 text-muted px-2.5 py-1 rounded-md">Teamwork</span>
+            <span class="text-[11px] bg-tealLight/10 border border-tealLight/20 text-muted px-2.5 py-1 rounded-md">Problem Solving</span>
+            <span class="text-[11px] bg-tealLight/10 border border-tealLight/20 text-muted px-2.5 py-1 rounded-md">Critical Thinking</span>
+            <span class="text-[11px] bg-tealLight/10 border border-tealLight/20 text-muted px-2.5 py-1 rounded-md">Adaptability</span>
+            <span class="text-[11px] bg-tealLight/10 border border-tealLight/20 text-muted px-2.5 py-1 rounded-md">Time Management</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT CONTENT AREA -->
+      <main class="space-y-16 sm:space-y-24 min-w-0">
+
+        <!-- About summary section -->
+        <section id="about" class="scroll-mt-20">
+          <div class="relative bg-gradient-to-br from-tealDark to-deep border border-tealLight/30 rounded-3xl p-6 sm:p-10 shadow-2xl overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-48 h-48 bg-glow/5 rounded-full filter blur-2xl pointer-events-none"></div>
+            
+            <h2 class="text-glow font-oswald text-xs sm:text-sm tracking-[0.25em] uppercase mb-6 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-glow"></span>Summary
+            </h2>
+            
+            <p class="text-base sm:text-lg text-cream/90 font-light leading-relaxed">
+              An ambitious <strong class="font-medium text-glow">Informatics Engineering undergraduate</strong> at Politeknik Negeri Batam, deeply passionate about software engineering, modern web architectures, and relational database management. 
+            </p>
+            <p class="text-sm sm:text-base text-muted/90 font-light leading-relaxed mt-4">
+              I bring hands-on experience designing and deploying high-impact systems, including automated financial ledgers, responsive e-commerce ecosystems, and smart culinary discovery engines. Anchored by a strong analytical mindset and robust communication skills, I am committed to continuous technical growth and delivering clean, production-ready code.
+            </p>
+          </div>
+        </section>
+
+        <!-- Education section -->
+        <section id="education" class="scroll-mt-20 space-y-8">
+          <div class="flex items-center gap-4">
+            <div class="h-px bg-tealLight/30 flex-1"></div>
+            <h2 class="font-oswald text-lg sm:text-2xl uppercase tracking-widest text-cream flex items-center gap-3">
+              <span class="font-anton text-2xl sm:text-3xl text-glow/30">01</span> Education
+            </h2>
+            <div class="h-px bg-tealLight/30 w-12 sm:w-24"></div>
+          </div>
+
+          <div class="interactive-card bg-gradient-to-r from-tealDark via-tealMedium/40 to-tealDark border border-tealLight/20 rounded-2xl p-6 sm:p-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-tealLight/20 pb-5 mb-5">
+              <div>
+                <h3 class="font-oswald text-xl sm:text-2xl font-semibold text-cream tracking-wide">Politeknik Negeri Batam</h3>
+                <p class="text-sm sm:text-base text-muted mt-1">Bachelor of Applied Science in Informatics Engineering (D4)</p>
+              </div>
+              <span class="bg-glow/10 text-glow border border-glowLine/40 font-oswald text-xs uppercase px-4 py-1.5 rounded-full tracking-wider font-semibold whitespace-nowrap">
+                2024 – Present
+              </span>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-oswald text-xs tracking-widest uppercase text-glow/80">Relevant Coursework</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="text-xs bg-deep/60 border border-tealLight/40 px-3.5 py-2 rounded-lg text-muted hover:border-glow/30 transition">Database Management Systems</span>
+                <span class="text-xs bg-deep/60 border border-tealLight/40 px-3.5 py-2 rounded-lg text-muted hover:border-glow/30 transition">Web Programming</span>
+                <span class="text-xs bg-deep/60 border border-tealLight/40 px-3.5 py-2 rounded-lg text-muted hover:border-glow/30 transition">Software Engineering</span>
+                <span class="text-xs bg-deep/60 border border-tealLight/40 px-3.5 py-2 rounded-lg text-muted hover:border-glow/30 transition">System Analysis & Design</span>
+                <span class="text-xs bg-deep/60 border border-tealLight/40 px-3.5 py-2 rounded-lg text-muted hover:border-glow/30 transition">Data Structures & Algorithms</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects section -->
+        <section id="projects" class="scroll-mt-20 space-y-8">
+          <div class="flex items-center gap-4">
+            <div class="h-px bg-tealLight/30 flex-1"></div>
+            <h2 class="font-oswald text-lg sm:text-2xl uppercase tracking-widest text-cream flex items-center gap-3">
+              <span class="font-anton text-2xl sm:text-3xl text-glow/30">02</span> Featured Projects
+            </h2>
+            <div class="h-px bg-tealLight/30 w-12 sm:w-24"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Proyek 1 -->
+            <div class="interactive-card bg-gradient-to-b from-tealMedium/30 to-deep border border-tealLight/20 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[10px] font-oswald uppercase tracking-widest text-glow bg-glow/10 px-2.5 py-1 rounded-md border border-glowLine/30">System Developer</span>
+                  <!-- Desktop Icon mockup -->
+                  <svg class="w-5 h-5 text-muted/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="font-oswald text-lg font-semibold text-cream mb-3 leading-snug">KASENTRA — SME Financial Bookkeeping System</h3>
+                <ul class="space-y-2 text-xs text-muted mb-6">
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Architected and built a lightweight financial management system tailored for micro-businesses and local SMEs.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Implemented intuitive, real-time transaction logging and balance tracking features.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Designed a highly normalized relational database to guarantee transactional integrity and performance.
+                  </li>
+                </ul>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-4 border-t border-tealLight/10">
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">PHP</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">MySQL</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">JS</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">CSS</span>
+              </div>
+            </div>
+
+            <!-- Proyek 2 -->
+            <div class="interactive-card bg-gradient-to-b from-tealMedium/30 to-deep border border-tealLight/20 rounded-2xl p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[10px] font-oswald uppercase tracking-widest text-glow bg-glow/10 px-2.5 py-1 rounded-md border border-glowLine/30">Web Developer</span>
+                  <!-- PWA Icon mockup -->
+                  <svg class="w-5 h-5 text-muted/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                </div>
+                <h3 class="font-oswald text-lg font-semibold text-cream mb-3 leading-snug">Batik Batam — Progressive Web App (PWA) E-Commerce</h3>
+                <ul class="space-y-2 text-xs text-muted mb-6">
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Designed and coded an offline-ready PWA focused on promoting and scaling Batik Batam sales.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Engineered a highly optimized responsive interface that delivers fluid native-app experiences across devices.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Constructed a dynamic, structured product catalog equipped with smart user state handling.
+                  </li>
+                </ul>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-4 border-t border-tealLight/10">
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">HTML</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">JS</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">PHP</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">MySQL</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-2 py-0.5 rounded">PWA</span>
+              </div>
+            </div>
+
+            <!-- Proyek 3 - Wide -->
+            <div class="interactive-card bg-gradient-to-r from-tealMedium/20 via-tealMedium/40 to-deep border border-tealLight/20 rounded-2xl p-6 sm:p-8 md:col-span-2 flex flex-col justify-between">
+              <div>
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-[10px] font-oswald uppercase tracking-widest text-glow bg-glow/10 px-2.5 py-1 rounded-md border border-glowLine/30">Application Developer</span>
+                  <!-- Location Pin SVG -->
+                  <svg class="w-5 h-5 text-muted/40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+                </div>
+                <h3 class="font-oswald text-lg sm:text-xl font-semibold text-cream mb-3">Toba Region Traditional Culinary Discovery & Recommendation Engine</h3>
+                <ul class="space-y-2.5 text-xs sm:text-sm text-muted mb-6">
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Programmed a smart search and curation hub focusing on legendary traditional culinary hotspots scattered across the Lake Toba volcanic region.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Integrated a lightweight, multi-criteria recommendation filtering algorithm based on categorizations, cuisines, and user profile preferences.
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-glow mt-1">✓</span> Crafted a clean, mobile-optimized UX design focused on maximizing tourist discovery rates and community interaction.
+                  </li>
+                </ul>
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-4 border-t border-tealLight/10">
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-3 py-1 rounded">Web Technologies</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-3 py-1 rounded">Database Systems</span>
+                <span class="text-[9px] font-mono tracking-wider text-glow/80 bg-tealLight/20 px-3 py-1 rounded">UI Design</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Certifications section -->
+        <section id="certifications" class="scroll-mt-20 space-y-8">
+          <div class="flex items-center gap-4">
+            <div class="h-px bg-tealLight/30 flex-1"></div>
+            <h2 class="font-oswald text-lg sm:text-2xl uppercase tracking-widest text-cream flex items-center gap-3">
+              <span class="font-anton text-2xl sm:text-3xl text-glow/30">03</span> Certifications
+            </h2>
+            <div class="h-px bg-tealLight/30 w-12 sm:w-24"></div>
+          </div>
+
+          <div class="flex justify-between items-center text-xs text-muted mb-4 bg-tealLight/10 border border-tealLight/30 p-3.5 rounded-xl">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-glow animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Select any certificate below to open the verification preview window
+            </span>
+          </div>
+
+          <div class="space-y-4">
+            
+            <!-- Cert 1 -->
+            <button 
+              type="button" 
+              class="cert-item w-full flex items-center justify-between text-left bg-gradient-to-r from-tealDark to-tealMedium/30 border border-tealLight/20 hover:border-glow/50 rounded-xl p-4 sm:p-5 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-deep"
+              data-cert-image="https://i.pinimg.com/1200x/55/be/7f/55be7fa2b2cd4c8be2b27d1f9cc4cf5e.jpg"
+              data-cert-title="Culinary Recommendation System — Medan Traditional Cuisine"
+            >
+              <div class="flex items-center gap-4 min-w-0">
+                <div class="w-12 h-12 bg-glowSoft border border-glowLine rounded-xl flex items-center justify-center text-glow flex-shrink-0 group-hover:bg-glow group-hover:text-deep transition duration-300 font-oswald font-semibold">
+                  01
+                </div>
+                <div class="min-w-0">
+                  <span class="text-[10px] font-oswald tracking-widest text-glow uppercase">Project Certificate</span>
+                  <p class="text-sm sm:text-base font-semibold text-cream truncate mt-0.5">Culinary Recommendation System — Medan Traditional Cuisine</p>
+                  <p class="text-xs text-muted">Medan Traditional Cuisine Project</p>
+                </div>
+              </div>
+              <span class="flex items-center gap-2 text-xs font-oswald uppercase text-glow/60 group-hover:text-glow ml-4 flex-shrink-0">
+                <span class="hidden sm:inline">Preview</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </span>
+            </button>
+
+            <!-- Cert 2 -->
+            <button 
+              type="button" 
+              class="cert-item w-full flex items-center justify-between text-left bg-gradient-to-r from-tealDark to-tealMedium/30 border border-tealLight/20 hover:border-glow/50 rounded-xl p-4 sm:p-5 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-deep"
+              data-cert-image="https://i.pinimg.com/1200x/19/1c/82/191c82deaf365fb105df2b8bb4692f53.jpg"
+              data-cert-title="Prototype Development Project 2B — Toba Traditional Culinary Recommendation App"
+            >
+              <div class="flex items-center gap-4 min-w-0">
+                <div class="w-12 h-12 bg-glowSoft border border-glowLine rounded-xl flex items-center justify-center text-glow flex-shrink-0 group-hover:bg-glow group-hover:text-deep transition duration-300 font-oswald font-semibold">
+                  02
+                </div>
+                <div class="min-w-0">
+                  <span class="text-[10px] font-oswald tracking-widest text-glow uppercase">Project Certificate</span>
+                  <p class="text-sm sm:text-base font-semibold text-cream truncate mt-0.5">Toba Region Traditional Culinary Recommendation Engine</p>
+                  <p class="text-xs text-muted">Prototype Development Project 2B Evening Class</p>
+                </div>
+              </div>
+              <span class="flex items-center gap-2 text-xs font-oswald uppercase text-glow/60 group-hover:text-glow ml-4 flex-shrink-0">
+                <span class="hidden sm:inline">Preview</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </span>
+            </button>
+
+            <!-- Cert 3 -->
+            <button 
+              type="button" 
+              class="cert-item w-full flex items-center justify-between text-left bg-gradient-to-r from-tealDark to-tealMedium/30 border border-tealLight/20 hover:border-glow/50 rounded-xl p-4 sm:p-5 transition-all duration-300 group focus:outline-none focus:ring-2 focus:ring-glow focus:ring-offset-2 focus:ring-offset-deep"
+              data-cert-image="https://i.pinimg.com/736x/1d/5e/32/1d5e32ecd5e018f37afbd682966fd52e.jpg"
+              data-cert-title="PWA eCommerce Application — Batik Batam"
+            >
+              <div class="flex items-center gap-4 min-w-0">
+                <div class="w-12 h-12 bg-glowSoft border border-glowLine rounded-xl flex items-center justify-center text-glow flex-shrink-0 group-hover:bg-glow group-hover:text-deep transition duration-300 font-oswald font-semibold">
+                  03
+                </div>
+                <div class="min-w-0">
+                  <span class="text-[10px] font-oswald tracking-widest text-glow uppercase">Project Certificate</span>
+                  <p class="text-sm sm:text-base font-semibold text-cream truncate mt-0.5">PWA e-Commerce Application — Batik Batam</p>
+                  <p class="text-xs text-muted">Web & Progressive Web App Development</p>
+                </div>
+              </div>
+              <span class="flex items-center gap-2 text-xs font-oswald uppercase text-glow/60 group-hover:text-glow ml-4 flex-shrink-0">
+                <span class="hidden sm:inline">Preview</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </span>
+            </button>
+
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="pt-8 border-t border-tealLight/20 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted/60">
+          <div>© 2026 Thaufik Fauzan Anra. All rights reserved.</div>
+          <div class="font-oswald tracking-wider uppercase text-[10px]">Politeknik Negeri Batam • Informatics Engineering</div>
+        </footer>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- LIGHTBOX CONTAINER -->
+  <div id="certLightbox" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-deep/95 backdrop-blur-xl transition-all duration-300 opacity-0" role="dialog" aria-modal="true" aria-labelledby="certLightboxTitle">
+    <div class="relative bg-gradient-to-b from-tealDark to-deep border border-glowLine/40 rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden transform scale-95 transition-all duration-300" id="lightboxDialog">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-tealLight/30 bg-tealDark/50">
+        <h3 class="font-oswald text-sm sm:text-base font-semibold text-cream truncate" id="certLightboxTitle">Certificate Verification</h3>
+        <button type="button" id="certLightboxClose" class="w-8 h-8 rounded-lg border border-tealLight/50 hover:border-glow/60 flex items-center justify-center text-muted hover:text-glow transition bg-deep/50" aria-label="Close">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-4 sm:p-6 overflow-y-auto flex justify-center items-center bg-deep/30">
+        <div class="relative w-full flex justify-center">
+          <!-- Main Image -->
+          <img id="certLightboxImg" class="max-h-[65vh] w-auto object-contain rounded-lg border border-tealLight/20 shadow-lg" src="" alt="Certificate Preview">
+          
+          <!-- Fallback / Error Message Container -->
+          <div id="certLightboxError" class="hidden text-center py-12 px-6">
+            <div class="w-16 h-16 bg-glowSoft text-glow border border-glowLine/40 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            </div>
+            <h4 class="font-oswald text-base text-cream font-medium mb-1">Preview Image Unavailable</h4>
+            <p class="text-xs text-muted max-w-sm mx-auto leading-relaxed">
+              The high-resolution original file resides in your local <code>./image/</code> directory. Please verify local directory access or physical storage to view.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // ScrollSpy & Navigation Tracking Implementation
+    const sections = document.querySelectorAll('section, header');
+    const sidebarNavLinks = document.querySelectorAll('.sidebar-nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function updateActiveNavigation() {
+      let activeSectionId = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= (sectionTop - 150)) {
+          activeSectionId = section.getAttribute('id') || '';
+        }
+      });
+
+      // Update Sidebar Links
+      sidebarNavLinks.forEach(link => {
+        link.classList.remove('nav-active');
+        if (link.getAttribute('href') === `#${activeSectionId}`) {
+          link.classList.add('nav-active');
+        }
+      });
+
+      // Update Mobile Links
+      mobileNavLinks.forEach(link => {
+        link.classList.remove('mobile-nav-active');
+        if (link.getAttribute('href') === `#${activeSectionId}`) {
+          link.classList.add('mobile-nav-active');
+          // Auto-scroll mobile nav bar to center active element
+          link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNavigation);
+    window.addEventListener('load', updateActiveNavigation);
+
+    // Interactive Custom Lightbox Logic
+    const certLightbox = document.getElementById('certLightbox');
+    const lightboxDialog = document.getElementById('lightboxDialog');
+    const certLightboxTitle = document.getElementById('certLightboxTitle');
+    const certLightboxImg = document.getElementById('certLightboxImg');
+    const certLightboxError = document.getElementById('certLightboxError');
+    const certLightboxClose = document.getElementById('certLightboxClose');
+    let focusedTriggerElement = null;
+
+    function openLightbox(imageUrl, title) {
+      focusedTriggerElement = document.activeElement;
+      certLightboxTitle.textContent = title;
+      
+      certLightboxImg.style.display = 'none';
+      certLightboxError.style.display = 'none';
+
+      certLightboxImg.src = imageUrl;
+      certLightboxImg.alt = `Certificate: ${title}`;
+
+      // Open transition
+      certLightbox.classList.remove('hidden');
+      certLightbox.classList.add('flex');
+      
+      // Delay classes slightly to allow transition animations
+      setTimeout(() => {
+        certLightbox.classList.add('opacity-100');
+        lightboxDialog.classList.remove('scale-95');
+        lightboxDialog.classList.add('scale-100');
+      }, 20);
+
+      document.body.classList.add('overflow-hidden');
+      certLightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      certLightbox.classList.remove('opacity-100');
+      lightboxDialog.classList.remove('scale-100');
+      lightboxDialog.classList.add('scale-95');
+
+      setTimeout(() => {
+        certLightbox.classList.add('hidden');
+        certLightbox.classList.remove('flex');
+        certLightboxImg.src = '';
+        document.body.classList.remove('overflow-hidden');
+        if (focusedTriggerElement) focusedTriggerElement.focus();
+      }, 300);
+    }
+
+    // Image loading feedback loops
+    certLightboxImg.addEventListener('load', () => {
+      certLightboxImg.style.display = 'block';
+      certLightboxError.style.display = 'none';
+    });
+
+    // Handle case where image is not found (e.g. running on sandbox without local directories)
+    certLightboxImg.addEventListener('error', () => {
+      certLightboxImg.style.display = 'none';
+      certLightboxError.style.display = 'block';
+    });
+
+    // Event listeners binding for certificate items
+    document.querySelectorAll('.cert-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const imgUrl = item.getAttribute('data-cert-image');
+        const title = item.getAttribute('data-cert-title');
+        openLightbox(imgUrl, title);
+      });
+    });
+
+    certLightboxClose.addEventListener('click', closeLightbox);
+    
+    // Close on backdrop click
+    certLightbox.addEventListener('click', (e) => {
+      if (e.target === certLightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard Accessibility controls (Escape key)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !certLightbox.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+  </script>
+
+</body>
+</html>
